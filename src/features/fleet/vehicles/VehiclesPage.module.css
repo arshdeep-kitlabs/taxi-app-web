@@ -1,0 +1,68 @@
+.page { display: flex; flex-direction: column; gap: var(--space-7); }
+
+/* Header */
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-5); }
+.title { font-size: var(--font-size-2xl); font-weight: var(--font-weight-semibold); }
+.subtitle { margin-top: var(--space-1); font-size: var(--font-size-sm); color: var(--color-text-secondary); max-width: 640px; }
+
+/* Stats */
+.statsGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: var(--space-4); }
+.statCard {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: var(--space-4) var(--space-5);
+  display: flex; flex-direction: column; gap: var(--space-2);
+}
+.statAccent  { border-color: var(--color-success-border); background: var(--color-success-bg); }
+.statWarning { border-color: var(--color-warning-border); background: var(--color-warning-bg); }
+.statDanger  { border-color: var(--color-danger-border);  background: var(--color-danger-bg); }
+.statLabel { font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.statAccent .statLabel  { color: var(--color-success-text); }
+.statWarning .statLabel { color: var(--color-warning-text); }
+.statDanger .statLabel  { color: var(--color-danger-text); }
+.statValue { font-size: var(--font-size-2xl); font-weight: var(--font-weight-semibold); line-height: 1; }
+
+/* Table section */
+.tableSection { display: flex; flex-direction: column; gap: var(--space-4); }
+
+/* Vehicle cell */
+.vehicleCell { display: flex; align-items: center; gap: var(--space-3); }
+.vehicleAvatar {
+  width: 34px; height: 34px; border-radius: var(--radius-md);
+  background: var(--color-neutral-100); color: var(--color-text-secondary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--font-size-xs); font-weight: var(--font-weight-bold);
+  flex-shrink: 0; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.vehicleName { font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); }
+.vehicleSub { font-size: var(--font-size-xs); color: var(--color-text-tertiary); margin-top: 2px; }
+
+/* Plate badge */
+.plateBadge {
+  display: inline-block; padding: 3px var(--space-2);
+  background: var(--color-neutral-100); border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm); font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold); font-family: 'SF Mono', monospace;
+  letter-spacing: 0.06em;
+}
+
+/* Fleet cell */
+.fleetName { font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); }
+.fleetId { font-size: var(--font-size-xs); color: var(--color-text-tertiary); }
+
+/* Driver */
+.driverName { font-size: var(--font-size-sm); }
+
+/* Ride type pill */
+.rideTypePill {
+  display: inline-block; padding: 2px var(--space-2);
+  background: var(--color-neutral-100); border-radius: var(--radius-full);
+  font-size: var(--font-size-xs); font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* Actions */
+.actions { display: flex; gap: var(--space-2); align-items: center; }
+
+/* Pagination */
+.pagination { display: flex; align-items: center; justify-content: center; gap: var(--space-4); }
+.pageInfo { font-size: var(--font-size-sm); color: var(--color-text-secondary); }

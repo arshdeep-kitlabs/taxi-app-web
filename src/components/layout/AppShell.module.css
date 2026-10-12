@@ -1,0 +1,15 @@
+.shell {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.content {
+  margin-left: var(--sidebar-width);
+  padding-top: var(--header-height);
+  min-height: 100vh;
+}
+
+.contentInner {
+  max-width: var(--content-max-width);
+  padding: var(--space-7) var(--space-7) var(--space-9);
+}

@@ -1,0 +1,12 @@
+.page { display: flex; flex-direction: column; gap: var(--space-5); }
+.header { display: flex; flex-direction: column; gap: 2px; }
+.title { font-size: var(--font-size-xl); }
+.subtitle { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+.banner {
+  padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);
+  font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
+  background: var(--color-success-bg); color: var(--color-success-text); border: 1px solid var(--color-success-border);
+}
+.multiplierInput { width: 84px; height: 32px; padding: 0 var(--space-2); }
+.zoneInput { width: 140px; height: 32px; padding: 0 var(--space-2); }
+.conditionInput { width: 200px; height: 32px; padding: 0 var(--space-2); }

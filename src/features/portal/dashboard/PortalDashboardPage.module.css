@@ -1,0 +1,249 @@
+/* PortalDashboardPage.module.css */
+
+.page {
+  padding: 28px 36px 80px;
+}
+
+/* ── Greeting ────────────────────────────────────────────────────────────── */
+.greeting {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.greetTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  margin: 0 0 4px;
+}
+
+.greetSub {
+  font-size: 13px;
+  color: var(--color-muted, #6b7280);
+  margin: 0;
+}
+
+/* ── Stat cards ──────────────────────────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.statLink { text-decoration: none; display: block; }
+
+.statCard {
+  background: var(--color-surface, #fbfaf6);
+  border: 1px solid var(--color-border, #e5e3dc);
+  border-left: 3px solid transparent;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: box-shadow 0.12s;
+}
+.statLink:hover .statCard { box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+
+.statAccent { border-left-color: var(--nomad-sage, #5fa77c); }
+
+.statLabel {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--color-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  line-height: 1.1;
+}
+
+.statSub {
+  font-size: 11px;
+  color: var(--color-muted, #6b7280);
+}
+
+/* ── Middle row ──────────────────────────────────────────────────────────── */
+.midRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* ── Panel card ──────────────────────────────────────────────────────────── */
+.panel {
+  background: var(--color-surface, #fbfaf6);
+  border: 1px solid var(--color-border, #e5e3dc);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panelHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panelTitle {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+}
+
+.panelLink {
+  font-size: 12px;
+  color: var(--nomad-sage, #5fa77c);
+  text-decoration: none;
+  font-weight: 500;
+}
+.panelLink:hover { text-decoration: underline; }
+
+/* Availability bars */
+.availList { display: flex; flex-direction: column; gap: 12px; }
+
+.availRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  column-gap: 10px;
+  row-gap: 4px;
+  align-items: center;
+}
+
+.availMeta {
+  display: flex;
+  justify-content: space-between;
+  grid-column: 1;
+}
+
+.availLabel {
+  font-size: 12.5px;
+  color: var(--color-heading, #101112);
+  font-weight: 500;
+}
+
+.availFrac {
+  font-size: 12px;
+  color: var(--color-muted, #6b7280);
+  font-weight: 600;
+}
+
+.availTrack {
+  grid-column: 1;
+  height: 6px;
+  background: var(--color-bg, #f7f6f0);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.availFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.availPct {
+  grid-row: 1 / 3;
+  grid-column: 2;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  align-self: center;
+}
+
+/* Maintenance alerts */
+.allGood {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-muted, #6b7280);
+  padding: 8px 0;
+}
+
+.alertList { display: flex; flex-direction: column; gap: 8px; }
+
+.alertRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 10px;
+  background: var(--color-bg, #f7f6f0);
+  border-radius: 7px;
+}
+
+.alertVehicle { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.alertReg     { font-size: 11.5px; font-family: 'JetBrains Mono', monospace; font-weight: 600; color: var(--color-heading, #101112); }
+.alertVehicleName { font-size: 11px; color: var(--color-muted, #6b7280); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.alertMore    { font-size: 12px; color: var(--color-muted, #6b7280); text-align: center; padding-top: 2px; }
+
+/* Performance list */
+.perfList { display: flex; flex-direction: column; gap: 0; }
+
+.perfRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border, #e5e3dc);
+}
+.perfRow:last-child { border-bottom: none; }
+
+.perfKey  { font-size: 12.5px; color: var(--color-muted, #6b7280); }
+.perfVal  { font-size: 13.5px; font-weight: 700; color: var(--color-heading, #101112); }
+.perfGreen { color: var(--nomad-sage, #5fa77c); }
+
+/* ── Recent rides table ──────────────────────────────────────────────────── */
+.tableCard {
+  background: var(--color-surface, #fbfaf6);
+  border: 1px solid var(--color-border, #e5e3dc);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tableCardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+}
+
+.emptyTable {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--color-muted, #6b7280);
+}
+
+.rideId {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nomad-sage, #5fa77c);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .statsGrid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1024px) {
+  .midRow    { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .midRow    { grid-template-columns: 1fr; }
+  .page      { padding: 20px 16px 60px; }
+}

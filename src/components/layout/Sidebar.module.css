@@ -1,0 +1,219 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--color-sidebar-bg);
+  border-right: 1px solid var(--color-sidebar-border);
+  display: flex;
+  flex-direction: column;
+  z-index: var(--z-sidebar);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  height: var(--header-height);
+  padding: 0 var(--space-5);
+  border-bottom: 1px solid var(--color-sidebar-border);
+  flex-shrink: 0;
+}
+
+.brandMark {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-700));
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.brandName {
+  color: var(--color-sidebar-text-active);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  white-space: nowrap;
+}
+
+.brandTag {
+  color: var(--color-sidebar-text);
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+}
+
+.nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 9px var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-sidebar-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.navLink svg {
+  color: var(--color-sidebar-icon);
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover {
+  background: var(--color-sidebar-bg-hover);
+  color: var(--color-sidebar-text-active);
+}
+
+.navLink:hover svg {
+  color: var(--color-sidebar-icon-active);
+}
+
+.navLinkActive {
+  background: var(--color-sidebar-bg-active);
+  color: var(--color-sidebar-text-active);
+}
+
+.navLinkActive svg {
+  color: var(--color-sidebar-icon-active);
+}
+
+.navLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-sidebar-border);
+  color: var(--color-sidebar-text);
+  font-size: var(--font-size-xs);
+  flex-shrink: 0;
+}
+
+/* Expandable nav group */
+
+.navGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.navGroupTrigger {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.navGroupChevron {
+  margin-left: auto;
+  color: var(--color-sidebar-icon);
+  flex-shrink: 0;
+  transition: color var(--transition-fast);
+}
+
+.navGroupTrigger:hover .navGroupChevron,
+.navLinkActive .navGroupChevron {
+  color: var(--color-sidebar-icon-active);
+}
+
+.navChildren {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 2px 0 4px var(--space-4);
+  margin-left: calc(18px + var(--space-3));
+  border-left: 1px solid var(--color-sidebar-border);
+}
+
+.navChild {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-sidebar-text);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.navChild:hover {
+  background: var(--color-sidebar-bg-hover);
+  color: var(--color-sidebar-text-active);
+}
+
+.navChildActive {
+  color: var(--color-sidebar-text-active);
+  background: var(--color-sidebar-bg-active);
+}
+
+.navChildDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.navChildActive .navChildDot {
+  opacity: 1;
+  background: var(--color-accent-500);
+}
+
+/* ── Fleet Portal entry ─────────────────────────────────────────────────── */
+.portalEntry { margin-top: auto; padding-top: 0; }
+
+.portalDivider {
+  height: 1px;
+  background: var(--color-sidebar-border, rgba(255,255,255,0.08));
+  margin: 10px 12px 8px;
+}
+
+.portalLink {
+  border: 1px dashed rgba(95,167,124,0.35);
+  border-radius: 8px;
+  margin: 0 4px;
+}
+.portalLink:hover {
+  border-color: rgba(95,167,124,0.65);
+  background: rgba(95,167,124,0.08) !important;
+}
+
+.portalBadge {
+  margin-left: auto;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-500, #5fa77c);
+  background: rgba(95,167,124,0.12);
+  border: 1px solid rgba(95,167,124,0.3);
+  border-radius: 4px;
+  padding: 2px 5px;
+}
