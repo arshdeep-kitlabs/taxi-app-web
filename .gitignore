@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.log
+
+# Real environment files stay out; the committed ones are a development
+# default and a production template with no secret in it.
+.env
+.env.development
+.env.production
+var/

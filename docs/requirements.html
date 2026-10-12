@@ -1,0 +1,688 @@
+<title>Driver Onboarding Requirements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --paper:#FAFAF8;
+  --surface:#FFFFFF;
+  --sunk:#F2F4F2;
+  --ink:#16191C;
+  --ink-2:#4C5257;
+  --ink-3:#848B90;
+  --rule:#E1E5E2;
+  --rule-2:#EDF0EE;
+  --accent:#4F7A5F;
+  --accent-soft:#E6EFE9;
+  --built:#33704B;
+  --built-soft:#E2EFE7;
+  --planned:#8A6412;
+  --planned-soft:#F6EDD8;
+  --open:#9A4038;
+  --open-soft:#F7E5E3;
+  --code-bg:#F5F7F5;
+  --shadow:0 1px 2px rgba(22,25,28,.05);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#101312;
+  --surface:#171A18;
+  --sunk:#1D211E;
+  --ink:#E8ECE9;
+  --ink-2:#AEB5B0;
+  --ink-3:#7E857F;
+  --rule:#2A2F2C;
+  --rule-2:#212623;
+  --accent:#86B394;
+  --accent-soft:#1C2820;
+  --built:#7BB392;
+  --built-soft:#18271D;
+  --planned:#D0A55E;
+  --planned-soft:#2B2415;
+  --open:#D28C84;
+  --open-soft:#2C1C1A;
+  --code-bg:#141715;
+  --shadow:0 1px 2px rgba(0,0,0,.35);
+}}
+:root[data-theme="dark"]{
+  --paper:#101312;
+  --surface:#171A18;
+  --sunk:#1D211E;
+  --ink:#E8ECE9;
+  --ink-2:#AEB5B0;
+  --ink-3:#7E857F;
+  --rule:#2A2F2C;
+  --rule-2:#212623;
+  --accent:#86B394;
+  --accent-soft:#1C2820;
+  --built:#7BB392;
+  --built-soft:#18271D;
+  --planned:#D0A55E;
+  --planned-soft:#2B2415;
+  --open:#D28C84;
+  --open-soft:#2C1C1A;
+  --code-bg:#141715;
+  --shadow:0 1px 2px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px 96px}
+
+/* ---------------- masthead ---------------- */
+.masthead{padding:48px 0 26px;border-bottom:2px solid var(--ink)}
+.doc-kind{
+  font-family:Archivo,system-ui,sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;
+}
+h1{
+  font-family:Archivo,system-ui,sans-serif;
+  font-size:clamp(30px,4.6vw,46px);font-weight:700;letter-spacing:-.025em;
+  line-height:1.05;margin:0 0 14px;text-wrap:balance;
+}
+.abstract{margin:0;max-width:64ch;color:var(--ink-2);font-size:17px}
+.meta{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:26px;
+  font-family:Archivo,system-ui,sans-serif;
+}
+.meta div{padding-right:26px;margin-right:26px;border-right:1px solid var(--rule)}
+.meta div:last-child{border-right:0;margin-right:0;padding-right:0}
+.meta dt{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 3px}
+.meta dd{margin:0;font-size:14px;font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------------- layout ---------------- */
+.cols{display:grid;grid-template-columns:212px minmax(0,1fr);gap:56px;align-items:start;margin-top:38px}
+nav.toc{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;padding-bottom:24px;font-family:Archivo,system-ui,sans-serif}
+.toc h6{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px;font-weight:600}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px;counter-reset:toc}
+.toc li a{display:flex;gap:10px;padding:5px 8px;border-radius:4px;color:var(--ink-2);font-size:13px;text-decoration:none}
+.toc li a:hover{background:var(--sunk);color:var(--ink)}
+.toc .n{color:var(--ink-3);font-variant-numeric:tabular-nums;min-width:14px;font-size:12px}
+
+section.sec{scroll-margin-top:22px;padding-top:40px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--rule);padding-bottom:11px;margin-bottom:20px}
+.sec-num{
+  font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.sec-head h2{
+  font-family:Archivo,system-ui,sans-serif;font-size:24px;font-weight:600;
+  letter-spacing:-.015em;margin:0;line-height:1.2;
+}
+h3{
+  font-family:Archivo,system-ui,sans-serif;font-size:15px;font-weight:600;
+  margin:28px 0 8px;letter-spacing:-.005em;
+}
+h3 .sub{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-3);font-weight:500;margin-right:8px}
+p{margin:0 0 14px;max-width:68ch}
+ul{margin:0 0 14px;padding-left:1.15em;max-width:68ch}
+li{margin-bottom:5px}
+code{font-family:"JetBrains Mono",monospace;font-size:13.5px;background:var(--code-bg);border:1px solid var(--rule-2);border-radius:3px;padding:.5px 4px}
+strong{font-weight:600}
+
+/* ---------------- status chips ---------------- */
+.chip{
+  display:inline-block;font-family:Archivo,system-ui,sans-serif;font-size:10.5px;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:2px 8px;border-radius:3px;white-space:nowrap;
+}
+.c-built{background:var(--built-soft);color:var(--built)}
+.c-planned{background:var(--planned-soft);color:var(--planned)}
+.c-open{background:var(--open-soft);color:var(--open)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin:0 0 8px;font-family:Archivo,system-ui,sans-serif;font-size:13px;color:var(--ink-2)}
+.legend span{display:flex;align-items:center;gap:8px}
+
+/* ---------------- tables ---------------- */
+.tbl-wrap{overflow-x:auto;margin:0 0 20px}
+table{width:100%;border-collapse:collapse;font-family:Archivo,system-ui,sans-serif;font-size:13.5px}
+thead th{
+  text-align:left;padding:0 14px 8px 0;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;border-bottom:1px solid var(--rule);white-space:nowrap;
+}
+tbody td{padding:10px 14px 10px 0;border-bottom:1px solid var(--rule-2);vertical-align:top;color:var(--ink-2)}
+tbody tr:last-child td{border-bottom:0}
+td.id{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent);white-space:nowrap;font-weight:500}
+td.req{color:var(--ink);max-width:42ch}
+td.ep{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink);white-space:nowrap}
+td.narrow{white-space:nowrap}
+.m{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:var(--accent);margin-right:7px}
+
+/* ---------------- blocks ---------------- */
+pre{
+  margin:0 0 18px;background:var(--code-bg);border:1px solid var(--rule-2);border-radius:6px;
+  padding:14px 16px;overflow-x:auto;font-family:"JetBrains Mono",monospace;font-size:12.8px;
+  line-height:1.6;color:var(--ink-2);
+}
+pre .k{color:var(--accent)}
+pre .c{color:var(--ink-3);font-style:italic}
+
+.note{
+  border-left:3px solid var(--accent);background:var(--surface);border-radius:0 5px 5px 0;
+  padding:14px 18px;margin:0 0 20px;box-shadow:var(--shadow);max-width:72ch;
+}
+.note p{margin:0;font-size:15px}
+.note strong{font-family:Archivo,system-ui,sans-serif;font-size:13px;letter-spacing:.02em}
+
+.journey{display:flex;flex-direction:column;gap:0;margin:0 0 22px;counter-reset:step}
+.step{display:grid;grid-template-columns:34px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule-2)}
+.step:last-child{border-bottom:0}
+.step-n{
+  font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:600;color:var(--accent);
+  padding-top:2px;font-variant-numeric:tabular-nums;
+}
+.step h4{font-family:Archivo,system-ui,sans-serif;font-size:14.5px;font-weight:600;margin:0 0 3px}
+.step p{margin:0;font-size:14.5px;color:var(--ink-2);max-width:64ch}
+.step .calls{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink-3);margin-top:5px;display:block}
+
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule);font-size:14px;color:var(--ink-3);max-width:70ch}
+
+@media (max-width:980px){
+  .cols{grid-template-columns:1fr;gap:0}
+  nav.toc{position:static;max-height:none;margin-bottom:34px;background:var(--surface);border:1px solid var(--rule-2);border-radius:8px;padding:16px}
+  .toc ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px}
+}
+@media (max-width:620px){
+  .wrap{padding:0 18px 64px}
+  .meta div{border-right:0;padding-right:0;margin-right:22px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <p class="doc-kind">Requirements · Nomad Driver Partner</p>
+  <h1>Driver Onboarding Requirements</h1>
+  <p class="abstract">What the driver onboarding backend must do, screen by screen, and which decisions are still open. Written for the backend, mobile and admin-panel teams building against it.</p>
+  <dl class="meta">
+    <div><dt>Version</dt><dd>1.0 — draft</dd></div>
+    <div><dt>Stack</dt><dd>Node.js · Express · TypeScript</dd></div>
+    <div><dt>Screens covered</dt><dd>7 driver · 2 admin</dd></div>
+    <div><dt>Endpoints built</dt><dd>1 of 13</dd></div>
+  </dl>
+</header>
+
+<div class="cols">
+
+<nav class="toc" aria-label="Contents">
+  <h6>Contents</h6>
+  <ol>
+    <li><a href="#s1"><span class="n">1</span>Purpose</a></li>
+    <li><a href="#s2"><span class="n">2</span>Systems</a></li>
+    <li><a href="#s3"><span class="n">3</span>Architecture</a></li>
+    <li><a href="#s4"><span class="n">4</span>The journey</a></li>
+    <li><a href="#s5"><span class="n">5</span>Screen requirements</a></li>
+    <li><a href="#s6"><span class="n">6</span>Configuration</a></li>
+    <li><a href="#s7"><span class="n">7</span>API surface</a></li>
+    <li><a href="#s8"><span class="n">8</span>Business rules</a></li>
+    <li><a href="#s9"><span class="n">9</span>Cross-cutting</a></li>
+    <li><a href="#s10"><span class="n">10</span>Open decisions</a></li>
+    <li><a href="#s11"><span class="n">11</span>Out of scope</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ═══════════════ 1 ═══════════════ -->
+<section class="sec" id="s1">
+  <div class="sec-head"><span class="sec-num">1</span><h2>Purpose</h2></div>
+
+  <p>A driver signs up on their phone, uploads their documents and their vehicle, and waits while a compliance team checks them. This backend runs that process end to end: it holds the application, decides when it is complete enough to submit, and carries the verification result back to the driver.</p>
+
+  <p>It is a <strong>backend only</strong>. It serves JSON and renders nothing. The driver app and the admin panel are separate products built against it.</p>
+
+  <div class="note">
+    <p><strong>Why this document exists.</strong> An earlier build followed a ten-endpoint sketch that turned out narrower than the screens. Two whole screens had no endpoint behind them, and the submitted screen expected a shape the API did not return. This document starts from the screens instead, so that gap cannot open again.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 2 ═══════════════ -->
+<section class="sec" id="s2">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Systems and audiences</h2></div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>System</th><th>Who builds it</th><th>Talks to this API as</th></tr></thead>
+      <tbody>
+        <tr><td class="req">Driver app — iOS and Android</td><td>Mobile team</td><td class="narrow"><code>Authorization: Bearer</code></td></tr>
+        <tr><td class="req">Admin panel — web</td><td>To be assigned</td><td class="narrow"><code>x-admin-key</code></td></tr>
+        <tr><td class="req">This API</td><td>Backend team</td><td class="narrow">—</td></tr>
+        <tr><td class="req">Document verification provider</td><td>Third party</td><td class="narrow">Not yet chosen</td></tr>
+        <tr><td class="req">Payout provider</td><td>Third party</td><td class="narrow">Not yet chosen</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>The two credentials are deliberately separate. A driver's token must never open an admin surface, and only the admin surface ever returns a document's file URL.</p>
+</section>
+
+<!-- ═══════════════ 3 ═══════════════ -->
+<section class="sec" id="s3">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Architecture</h2></div>
+
+  <p>Modular and layered, with dependencies pointing inward only. A service names an interface, never a concrete class; one file binds the two.</p>
+
+<pre>src/
+  main.ts            listen
+  app.ts             express app, middleware order
+  container.ts       <span class="c">the only file naming both an interface and a class</span>
+  common/
+    errors/          the one error type services throw
+    http/            response envelope, error handler, async wrapper
+  modules/
+    &lt;feature&gt;/
+      *.types.ts       the contract
+      ports/           interfaces the service depends on
+      providers/       implementations behind those interfaces
+      *.service.ts     business rules
+      *.controller.ts  HTTP in, HTTP out
+      *.routes.ts      the router</pre>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">ARC-1</td><td class="req">A controller performs no business logic. It validates input, calls one service, returns the result.</td></tr>
+        <tr><td class="id">ARC-2</td><td class="req">A service imports no Express type and no concrete repository. Collaborators arrive through its constructor.</td></tr>
+        <tr><td class="id">ARC-3</td><td class="req">Persistence sits behind an interface. Swapping the store must not change a service.</td></tr>
+        <tr><td class="id">ARC-4</td><td class="req">Values that vary by market — document lists, colours, age limits — live in configuration, not in a service.</td></tr>
+        <tr><td class="id">ARC-5</td><td class="req">Exactly one place turns an exception into a response body.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════ 4 ═══════════════ -->
+<section class="sec" id="s4">
+  <div class="sec-head"><span class="sec-num">4</span><h2>The driver journey</h2><span style="margin-left:auto;font-family:Archivo,sans-serif;font-size:12.5px;color:var(--ink-3)">Steps 1–5 of 5</span></div>
+
+  <div class="journey">
+    <div class="step"><span class="step-n">00</span><div>
+      <h4>App launch</h4>
+      <p>Branding, theme and feature flags load before the first pixel, so a colour or a hidden button never needs an app release.</p>
+      <span class="calls">GET /config</span>
+    </div></div>
+
+    <div class="step"><span class="step-n">01</span><div>
+      <h4>Welcome and sign in</h4>
+      <p>The driver enters a phone number. The API answers only whether that number is already known — new drivers go to the sign-up form, returning ones straight to the code.</p>
+      <span class="calls">POST /login</span>
+    </div></div>
+
+    <div class="step"><span class="step-n">02</span><div>
+      <h4>Step 1 — Personal information</h4>
+      <p>First and last name, mobile, email, date of birth and a profile photo. The details travel with the code request and are only written to a driver once the code is proven.</p>
+      <span class="calls">POST /requestOTP → POST /verifyOTP</span>
+    </div></div>
+
+    <div class="step"><span class="step-n">03</span><div>
+      <h4>Step 2 — Identity and documents</h4>
+      <p>Government ID, driver licence and a live selfie. Each card shows its own state, moving from Required to In review to Verified without the driver doing anything further.</p>
+      <span class="calls">PATCH /documents</span>
+    </div></div>
+
+    <div class="step"><span class="step-n">04</span><div>
+      <h4>Step 3 — Vehicle details</h4>
+      <p>Make, model, year, colour and licence plate, then the registration document and insurance certificate. The vehicle determines which service classes the driver can work.</p>
+      <span class="calls">PATCH /vehicle → PATCH /documents</span>
+    </div></div>
+
+    <div class="step"><span class="step-n">05</span><div>
+      <h4>Step 4 — Payout details</h4>
+      <p>Bank details for weekly payouts, handled by a provider so account numbers never reach us. <span class="chip c-open">Provider undecided</span></p>
+      <span class="calls">not designed</span>
+    </div></div>
+
+    <div class="step"><span class="step-n">06</span><div>
+      <h4>Step 5 — Review application</h4>
+      <p>Every section with its state and an edit route back. The submit button is enabled by the server, never by the app.</p>
+      <span class="calls">GET /review → POST /signup</span>
+    </div></div>
+
+    <div class="step"><span class="step-n">07</span><div>
+      <h4>Verification in progress</h4>
+      <p>A reference code, a submitted date, and four named checks that clear one at a time. The only thing that moves them is a compliance decision.</p>
+      <span class="calls">GET /trackStatus</span>
+    </div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 5 ═══════════════ -->
+<section class="sec" id="s5">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Screen requirements</h2></div>
+
+  <div class="legend">
+    <span><span class="chip c-built">Built</span> working today</span>
+    <span><span class="chip c-planned">Planned</span> designed, not written</span>
+    <span><span class="chip c-open">Open</span> needs a decision first</span>
+  </div>
+
+  <h3><span class="sub">5.1</span>Welcome and sign in <span class="chip c-built">Built</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th><th>Serves</th></tr></thead>
+      <tbody>
+        <tr><td class="id">CFG-1</td><td class="req">Wordmark, logo and the darkened map behind the welcome copy are supplied as URLs.</td><td class="narrow">branding.assets</td></tr>
+        <tr><td class="id">CFG-2</td><td class="req">Headline and body copy come from the server so wording changes need no release.</td><td class="narrow">branding.welcome</td></tr>
+        <tr><td class="id">CFG-3</td><td class="req">Colours, corner radii and typefaces are supplied as tokens, not hard-coded in the app.</td><td class="narrow">theme</td></tr>
+        <tr><td class="id">CFG-4</td><td class="req">The Phone / Email toggle is driven by a list. One entry means the app shows no toggle.</td><td class="narrow">auth.methods</td></tr>
+        <tr><td class="id">CFG-5</td><td class="req">Country dial codes carry which one the picker opens on.</td><td class="narrow">auth.countries</td></tr>
+        <tr><td class="id">CFG-6</td><td class="req">A disabled social provider is omitted, not returned as <code>enabled: false</code>. The app renders what it is given.</td><td class="narrow">auth.social</td></tr>
+        <tr><td class="id">CFG-7</td><td class="req">Driver Terms and Privacy Policy each carry a URL and a version. The version is returned on acceptance so consent is auditable.</td><td class="narrow">legal</td></tr>
+        <tr><td class="id">CFG-8</td><td class="req">Unauthenticated, and cacheable for five minutes.</td><td class="narrow">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">5.2</span>Personal information <span class="chip c-built">Built</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">SIG-1</td><td class="req">Sign-in asks one question: is this number already known. It creates nothing and reveals nothing else about the account.</td></tr>
+        <tr><td class="id">SIG-2</td><td class="req">A new driver supplies first name, last name, email, date of birth and terms acceptance with the code request.</td></tr>
+        <tr><td class="id">SIG-3</td><td class="req">Those details are held against the code challenge and written to a driver only once the code is verified, so an unverified caller cannot overwrite an existing account.</td></tr>
+        <tr><td class="id">SIG-4</td><td class="req">A returning driver requests a code with the phone number alone.</td></tr>
+        <tr><td class="id">SIG-5</td><td class="req">Each field is refused individually, keyed by input name, so the form highlights the right box.</td></tr>
+        <tr><td class="id">SIG-6</td><td class="req">A code expires after 5 minutes, locks after 5 wrong attempts, and cannot be replayed once used.</td></tr>
+        <tr><td class="id">SIG-7</td><td class="req">The profile photo is a file, and follows the same upload path as every other document.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">5.3</span>Identity and documents <span class="chip c-built">Built</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">DOC-1</td><td class="req">The checklist comes from configuration. Adding a document type is a configuration change.</td></tr>
+        <tr><td class="id">DOC-2</td><td class="req">A document may offer a choice of type. The tiles follow that choice, so a single-page ID asks for one image and a two-sided one asks for two.</td></tr>
+        <tr><td class="id">DOC-9</td><td class="req">Changing the type discards images uploaded against slots the new type does not have.</td></tr>
+        <tr><td class="id">DOC-10</td><td class="req">The image counts and the Continue button come from the server, computed against the chosen types.</td></tr>
+        <tr><td class="id">DOC-3</td><td class="req">Uploading merges. Sending one document never clears another.</td></tr>
+        <tr><td class="id">DOC-4</td><td class="req">Registering a document returns <em>in review</em>, never <em>verified</em>. Verification is asynchronous.</td></tr>
+        <tr><td class="id">DOC-5</td><td class="req">A card shows Required, In review, Verified or Rejected, and a rejected card carries the reason.</td></tr>
+        <tr><td class="id">DOC-6</td><td class="req">Replacing a document keeps the previous version for audit and restarts its verification.</td></tr>
+        <tr><td class="id">DOC-7</td><td class="req">The screen shows extracted detail — passport country, licence number and expiry. <span class="chip c-open">Depends on the provider</span></td></tr>
+        <tr><td class="id">DOC-8</td><td class="req">The driver can view a document they uploaded, through a short-lived link. <span class="chip c-open">Not designed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">5.4</span>Vehicle documents <span class="chip c-built">Built</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">VEH-1</td><td class="req">The registration certificate, insurance and MOT are collected on this screen, each tagged mandatory or optional, with the angles to photograph named for the driver.</td></tr>
+        <tr><td class="id">VEH-2</td><td class="req">An optional document is shown but never counted, so it cannot hold the Continue button back.</td></tr>
+        <tr><td class="id">VEH-3</td><td class="req">This screen has its own route. It can write only its own documents; an identity document sent here is refused, and a vehicle document sent to the identity route is refused too.</td></tr>
+        <tr><td class="id">VEH-4</td><td class="req">Which documents are asked for comes from configuration, so the list can follow the region without an app release.</td></tr>
+        <tr><td class="id">VEH-5</td><td class="req">The car's typed details — make, model, year, colour, plate — are sent under the reserved <em>details</em> key beside the documents. They are stored, not echoed: the app owns that form, and the review screen reads them back with a chosen option shown as its label.</td></tr>
+        <tr><td class="id">VEH-6</td><td class="req">A plate can belong to one driver only. <span class="chip c-open">Waits on the details screen above</span></td></tr>
+        <tr><td class="id">VEH-7</td><td class="req">The service classes a vehicle qualifies for are derived on the server, never supplied by the app. <span class="chip c-open">Classes not defined yet</span></td></tr>
+        </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">5.5</span>Review and submit <span class="chip c-built">Built</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">REV-1</td><td class="req">Callable at any point, not only on the review screen — this is also how the app resumes a half-finished application.</td></tr>
+        <tr><td class="id">REV-2</td><td class="req">Returns whether the application may be submitted, and the list of what is outstanding.</td></tr>
+        <tr><td class="id">REV-3</td><td class="req">Submitting re-evaluates the same rule on the server, so a stale app cannot submit an incomplete application.</td></tr>
+        <tr><td class="id">REV-4</td><td class="req">Submitting twice returns the same reference rather than creating a second application.</td></tr>
+        <tr><td class="id">REV-5</td><td class="req">Terms and privacy versions are recorded against the driver at submission.</td></tr>
+        <tr><td class="id">REV-6</td><td class="req">Each section offers a route back to edit it. A correction made on this screen takes priority: it overwrites whatever the upload screens held, and this is the only route that can write an identity and a vehicle document in the same call.</td></tr>
+        <tr><td class="id">REV-7</td><td class="req">Submitting freezes the application. Every upload route answers APPLICATION_LOCKED from that point, so no file changes under a reviewer who is already reading it.</td></tr>
+        <tr><td class="id">REV-8</td><td class="req">A rejection hands it back: the upload routes open again, the documents the reviewer named come back with isRejected set, and the same Submit button sends it round again, which clears the list. An approval closes it for good. <span class="chip c-open">The driver side is built and tested; nothing sets a decision until the admin endpoint is designed</span></td></tr>
+        <tr><td class="id">REV-9</td><td class="req">An image slot holds a link to a file stored elsewhere; only the shape of the address is checked. <span class="chip c-open">Nothing produces those links yet — an upload endpoint is still to be designed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">5.6</span>Verification in progress <span class="chip c-built">Built</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">TRK-1</td><td class="req">Four named checks — identity, driver licence, vehicle and insurance, payout account — each Queued, In review, Cleared or Failed.</td></tr>
+        <tr><td class="id">TRK-2</td><td class="req">Cleared and total counts, driving “1 of 4 checks cleared”.</td></tr>
+        <tr><td class="id">TRK-3</td><td class="req">A reference code in the form <code>ND-4821-GB</code>, and the submitted date.</td></tr>
+        <tr><td class="id">TRK-4</td><td class="req">Polling never changes a status. Only a compliance decision does.</td></tr>
+        <tr><td class="id">TRK-5</td><td class="req">A rejection carries a reason the driver can act on, and re-opens the application for editing.</td></tr>
+        <tr><td class="id">TRK-6</td><td class="req">Resubmitting starts the review over: earlier verdicts must not survive it.</td></tr>
+        <tr><td class="id">TRK-7</td><td class="req">A check that is not required cannot hold up an approval.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">5.7</span>Admin panel <span class="chip c-planned">Planned</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">ADM-1</td><td class="req">A queue of applications awaiting a decision. Without it an admin has no way to obtain a driver id.</td></tr>
+        <tr><td class="id">ADM-2</td><td class="req">A full record for one driver, including the document file URLs. This is the only place they appear.</td></tr>
+        <tr><td class="id">ADM-3</td><td class="req">A check can be cleared or failed on its own, so the driver's screen shows them clearing one at a time.</td></tr>
+        <tr><td class="id">ADM-4</td><td class="req">The application follows its checks: any failure rejects it, and it is approved only once every required check has cleared.</td></tr>
+        <tr><td class="id">ADM-5</td><td class="req">A rejection must carry a reason.</td></tr>
+        <tr><td class="id">ADM-6</td><td class="req">Every view of a document is logged — who, which, when.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════ 6 ═══════════════ -->
+<section class="sec" id="s6">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Configuration</h2><span style="margin-left:auto;font-family:Archivo,sans-serif;font-size:12.5px;color:var(--ink-3)">Edited by an admin, read by the app</span></div>
+
+  <p>Everything <code>GET /config</code> returns is data, not code: branding, theme tokens, the sign-in methods, the country dial codes, the document checklist, the ID dropdown and which image tiles each ID type asks for. An admin edits it; the app renders whatever it is given.</p>
+
+  <div class="note">
+    <p><strong>The app decides nothing.</strong> It does not know that a birth certificate has one side and an Aadhaar card has two, that Apple sign-in is switched off, or that seven images are needed. Every one of those is a value it receives. That is what makes the configuration editable at all — the moment the app hard-codes one of them, editing it server-side stops working.</p>
+  </div>
+
+  <h3><span class="sub">6.1</span>How it is stored</h3>
+  <p>The service depends on a <code>ConfigSource</code> interface, never on where the values live. Today that is a validated JSON file; a database row replaces it without touching a service, a controller, or the response the app receives.</p>
+
+<pre><span class="c">// container.ts — the whole migration</span>
+- const configSource = new JsonFileConfigSource(env.CONFIG_FILE);
++ const configSource = new DatabaseConfigSource(db);</pre>
+
+  <h3><span class="sub">6.2</span>Every edit is validated first</h3>
+  <p>One schema guards every way configuration can arrive — a file at boot, a database row, or an admin form. A bad edit is refused rather than reaching drivers, and every problem is reported at once because someone fixing a form wants the whole list:</p>
+
+<pre>ConfigInvalidError: Configuration is not usable:
+  theme.colors.accent: Use a six-digit hex colour, e.g. #6E9179
+  documents.documents.0.typeOptions.0.images: A type needs at least one image slot
+  signIn.countries: Exactly one country must be the default, found 2
+  features.emailSignIn: Remove "email" from signIn.methods, or switch emailSignIn on</pre>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">CFGA-1</td><td class="req">Configuration is validated against one schema before it is stored, whatever wrote it.</td></tr>
+        <tr><td class="id">CFGA-2</td><td class="req">Every problem is reported together, keyed by the path that is wrong.</td></tr>
+        <tr><td class="id">CFGA-3</td><td class="req">A choice a driver can select must be completable: an ID type with no image slots is refused.</td></tr>
+        <tr><td class="id">CFGA-4</td><td class="req">The default sign-in method must be one that is offered, and exactly one country is the default.</td></tr>
+        <tr><td class="id">CFGA-5</td><td class="req">A method listed for sign-in cannot also be switched off in features.</td></tr>
+        <tr><td class="id">CFGA-6</td><td class="req">Ids are immutable once a driver record references them. Labels, order and image slots stay editable.</td></tr>
+        <tr><td class="id">CFGA-7</td><td class="req">Each revision carries a version and a timestamp, so a client can tell one from another and a bad save can be rolled back.</td></tr>
+        <tr><td class="id">CFGA-8</td><td class="req">A rejected edit leaves the previous configuration serving.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">6.3</span>What an admin may change</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Freely editable</th><th>Editable with care</th><th>Not editable</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="req">Copy, colours, corner radii, fonts, support details, feature flags, country list, minimum age, code length and expiry, document labels and image slots, dropdown options and their order</td>
+          <td class="req">Removing a country or an ID type that drivers have already used, and the total step count, which the app's progress bar follows</td>
+          <td class="req">Document names and type ids once stored against a driver — renaming <code>aadhaarCard</code> after five hundred drivers have chosen it orphans their records</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">6.4</span>Still to settle</h3>
+  <p>The response is cached for five minutes, so an edit takes up to that long to reach a running app and longer for one that does not relaunch. A flag that must flip instantly needs either a shorter cache or its own uncached call. Endpoints for an admin to read and write configuration are not built.</p>
+</section>
+
+<!-- ═══════════════ 7 ═══════════════ -->
+<section class="sec" id="s7">
+  <div class="sec-head"><span class="sec-num">7</span><h2>API surface</h2><span style="margin-left:auto;font-family:Archivo,sans-serif;font-size:12.5px;color:var(--ink-3)">Designed one at a time</span></div>
+
+  <p>Endpoints are designed and built screen by screen. Nothing below is written until the screen it serves has been reviewed.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Endpoint</th><th>Screen</th><th>Auth</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="ep"><span class="m">GET</span>/config</td><td>App launch</td><td class="narrow">Public</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">POST</span>/login</td><td>Sign in</td><td class="narrow">Public</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">POST</span>/requestOTP</td><td>Sign-up form</td><td class="narrow">Public</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">POST</span>/verifyOTP</td><td>OTP</td><td class="narrow">Public</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">POST</span>/refresh</td><td>Any screen, in the background</td><td class="narrow">Refresh token</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">GET</span>/documents</td><td>Identity &amp; documents</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">PATCH</span>/documents</td><td>Identity &amp; documents</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">GET</span>/vehicle</td><td>Vehicle documents</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">PATCH</span>/vehicle</td><td>Vehicle documents</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">GET</span>/review</td><td>Review your application</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">PATCH</span>/review</td><td>Review your application</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">POST</span>/signup</td><td>Submit application</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">GET</span>/trackStatus</td><td>Verification in progress</td><td class="narrow">Bearer</td><td><span class="chip c-built">Built</span></td></tr>
+        <tr><td class="ep"><span class="m">GET</span>/getDriverQueue</td><td>Admin queue</td><td class="narrow">Admin key</td><td><span class="chip c-planned">Planned</span></td></tr>
+        <tr><td class="ep"><span class="m">GET</span>/getDriverDetails</td><td>Admin review</td><td class="narrow">Admin key</td><td><span class="chip c-planned">Planned</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════ 7 ═══════════════ -->
+<section class="sec" id="s8">
+  <div class="sec-head"><span class="sec-num">8</span><h2>Business rules</h2></div>
+
+  <p>Every value below is configuration, not a constant in code, because each varies by market.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Rule</th><th>Current value</th><th>Confirmed?</th></tr></thead>
+      <tbody>
+        <tr><td class="id">BIZ-1</td><td class="req">Minimum driver age</td><td class="narrow">21</td><td><span class="chip c-open">Assumed</span></td></tr>
+        <tr><td class="id">BIZ-2</td><td class="req">Maximum vehicle age</td><td class="narrow">8 years</td><td><span class="chip c-open">Assumed</span></td></tr>
+        <tr><td class="id">BIZ-3</td><td class="req">Documents required before submission</td><td class="narrow">6</td><td><span class="chip c-open">Assumed</span></td></tr>
+        <tr><td class="id">BIZ-4</td><td class="req">Verification checks</td><td class="narrow">4</td><td><span class="chip c-built">From the screen</span></td></tr>
+        <tr><td class="id">BIZ-5</td><td class="req">Stated review time</td><td class="narrow">24 hours</td><td><span class="chip c-built">From the screen</span></td></tr>
+        <tr><td class="id">BIZ-6</td><td class="req">Operating cities</td><td class="narrow">46</td><td><span class="chip c-open">List not supplied</span></td></tr>
+        <tr><td class="id">BIZ-7</td><td class="req">Rejection retries</td><td class="narrow">unlimited</td><td><span class="chip c-open">Assumed</span></td></tr>
+        <tr><td class="id">BIZ-8</td><td class="req">Accepted licence countries</td><td class="narrow">UK only</td><td><span class="chip c-open">Assumed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════ 8 ═══════════════ -->
+<section class="sec" id="s9">
+  <div class="sec-head"><span class="sec-num">9</span><h2>Cross-cutting requirements</h2></div>
+
+  <h3><span class="sub">9.1</span>Response shape</h3>
+  <p>One success shape and one error shape, on every endpoint without exception.</p>
+<pre>{ <span class="k">"ok"</span>: true,  <span class="k">"data"</span>: { … } }
+
+{ <span class="k">"ok"</span>: false, <span class="k">"error"</span>: {
+    <span class="k">"code"</span>: "APPLICATION_INCOMPLETE",     <span class="c">// stable, safe to switch on</span>
+    <span class="k">"message"</span>: "2 items are still required.",  <span class="c">// safe to show a driver</span>
+    <span class="k">"fields"</span>: { <span class="k">"email"</span>: "Already in use" }  <span class="c">// maps onto form inputs</span>
+} }</pre>
+
+  <h3><span class="sub">9.2</span>Authentication</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">SEC-1</td><td class="req">Driver calls carry a bearer token; admin calls carry a separate key. Neither credential opens the other's surface.</td></tr>
+        <tr><td class="id">SEC-2</td><td class="req">A refresh token is not accepted where an access token belongs.</td></tr>
+        <tr><td class="id">SEC-3</td><td class="req">The driver id comes from the token, never from a request body, so one driver cannot act as another.</td></tr>
+        <tr><td class="id">SEC-4</td><td class="req">A short-lived access token with a refresh path. POST /refresh trades a refresh token for a new pair, so the app renews in the background rather than sending the driver back to sign-in. <span class="chip c-open">Tokens are self-contained, so a refresh token cannot be revoked before it expires — a store is needed for that</span></td></tr>
+        <tr><td class="id">SEC-5</td><td class="req">Code requests are rate limited per number and per address.</td></tr>
+        <tr><td class="id">SEC-6</td><td class="req">Document file URLs never appear in a driver-facing response.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="sub">9.3</span>Behaviour</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td class="id">GEN-1</td><td class="req">A response carries only what a screen uses. No field is returned because it happened to be nearby.</td></tr>
+        <tr><td class="id">GEN-2</td><td class="req">Completeness is computed on read, never stored, so counters cannot drift from the rows behind them.</td></tr>
+        <tr><td class="id">GEN-3</td><td class="req">Mutating calls accept an idempotency key. Repeating one is safe.</td></tr>
+        <tr><td class="id">GEN-4</td><td class="req">No third-party call runs inside a request. Anything slower answers with a poll target.</td></tr>
+        <tr><td class="id">GEN-5</td><td class="req">Every message shown to a driver is written by the server, and none exposes an internal identifier.</td></tr>
+        <tr><td class="id">GEN-6</td><td class="req">Endpoints are versioned before the app ships.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════ 9 ═══════════════ -->
+<section class="sec" id="s10">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Open decisions</h2></div>
+
+  <p>Each of these blocks work. None can be settled inside the backend alone.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Decision</th><th>Blocks</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td class="id">OPN-1</td><td class="req">How a file reaches storage — a signed upload URL from us, or a direct-to-bucket credential in the app.</td><td class="narrow">Every upload</td><td class="narrow">Backend + mobile</td></tr>
+        <tr><td class="id">OPN-2</td><td class="req">Which verification provider. It determines what extracted detail the document cards can show.</td><td class="narrow">DOC-7, TRK-1</td><td class="narrow">Product</td></tr>
+        <tr><td class="id">OPN-3</td><td class="req">Which payout provider.</td><td class="narrow">Step 4 entirely</td><td class="narrow">Finance</td></tr>
+        <tr><td class="id">OPN-4</td><td class="req">Whether details can be edited after verification, and how identity is re-proven if the phone or email changes.</td><td class="narrow">REV-6</td><td class="narrow">Product</td></tr>
+        <tr><td class="id">OPN-5</td><td class="req">Whether email sign-in ships. The screen shows the tab; nothing behind it is designed.</td><td class="narrow">CFG-4</td><td class="narrow">Product</td></tr>
+        <tr><td class="id">OPN-6</td><td class="req">Whether Apple and Google sign-in ship. Both buttons are on the screen and both are switched off.</td><td class="narrow">CFG-6</td><td class="narrow">Product</td></tr>
+        <tr><td class="id">OPN-7</td><td class="req">Who owns the words on screen. Server-composed copy keeps both platforms identical but blocks translation.</td><td class="narrow">GEN-5</td><td class="narrow">Product + mobile</td></tr>
+        <tr><td class="id">OPN-8</td><td class="req">The real list of 46 cities and their per-city rules.</td><td class="narrow">BIZ-1, BIZ-2, BIZ-6</td><td class="narrow">Operations</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════ 10 ═══════════════ -->
+<section class="sec" id="s11">
+  <div class="sec-head"><span class="sec-num">11</span><h2>Out of scope</h2></div>
+
+  <p>Named here so nobody assumes otherwise:</p>
+  <ul>
+    <li>The driver app and the admin panel. This is a backend; it renders nothing.</li>
+    <li>Everything after approval — going online, accepting trips, earnings, ratings.</li>
+    <li>Rider-facing anything.</li>
+    <li>Payments, pricing and payout runs. Only the driver's payout <em>setup</em> is in scope, once a provider is chosen.</li>
+    <li>Push notification delivery. The trigger points are in scope; the transport is not designed.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Requirements are written from the screens rather than from an endpoint list, and each endpoint is designed only once the screen it serves has been reviewed. Anything marked assumed is a value we chose to keep moving — correct it and the code follows.</p>
+</footer>
+
+</main>
+</div>
+</div>

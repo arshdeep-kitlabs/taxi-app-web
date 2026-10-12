@@ -1,0 +1,370 @@
+{
+  "branding": {
+    "appName": "Kit Taxi Driver",
+    "logoUrl": "https://i.pinimg.com/736x/71/77/6f/71776f02f9df9dc2bab0da9259c0836a.jpg"
+  },
+  "theme": {
+    "colors": {
+      "pageBackground": "#F4F2ED",
+      "text": "#14161A",
+      "accent": "#6E9179"
+    }
+  },
+  "signIn": {
+    "countries": [
+      {
+        "code": "GB",
+        "name": "United Kingdom",
+        "dialCode": "+44",
+        "isDefault": true
+      },
+      {
+        "code": "IN",
+        "name": "India",
+        "dialCode": "+91",
+        "isDefault": false
+      },
+      {
+        "code": "IE",
+        "name": "Ireland",
+        "dialCode": "+353",
+        "isDefault": false
+      },
+      {
+        "code": "NL",
+        "name": "Netherlands",
+        "dialCode": "+31",
+        "isDefault": false
+      },
+      {
+        "code": "PT",
+        "name": "Portugal",
+        "dialCode": "+351",
+        "isDefault": false
+      }
+    ]
+  },
+  "legal": {
+    "terms": {
+      "url": "https://in.pinterest.com/pin/502151427197619197/"
+    },
+    "privacy": {
+      "url": "https://in.pinterest.com/pin/1147080967616741504/"
+    }
+  },
+  "application": {
+    "referencePrefix": "KT",
+    "referenceDigits": 4,
+    "reviewTeam": "Compliance team",
+    "documentExpiryWarningDays": 60
+  },
+  "money": {
+    "currency": "INR",
+    "symbol": "₹"
+  },
+  "timezone": "Asia/Kolkata",
+  "rides": {
+    "serviceClasses": [
+      "Standard",
+      "Signature",
+      "Executive"
+    ]
+  },
+  "documents": {
+    "documents": [
+      {
+        "name": "driverGovernmentId",
+        "label": "Government ID",
+        "description": "A photo ID issued by the government. Choose which one you have.",
+        "isMandatory": true,
+        "collectedAt": "identity",
+        "typeOptions": [
+          {
+            "id": "panCard",
+            "label": "PAN card",
+            "description": "Front and back of your PAN card.",
+            "images": [
+              {
+                "name": "front",
+                "label": "Front image",
+                "description": "The side with your photo and PAN number."
+              },
+              {
+                "name": "back",
+                "label": "Back image",
+                "description": "The other side."
+              }
+            ]
+          },
+          {
+            "id": "aadhaarCard",
+            "label": "Aadhaar card",
+            "description": "Front and back of your Aadhaar card.",
+            "images": [
+              {
+                "name": "front",
+                "label": "Front image",
+                "description": "The side with your photo and Aadhaar number."
+              },
+              {
+                "name": "back",
+                "label": "Back image",
+                "description": "The side with your address."
+              }
+            ]
+          },
+          {
+            "id": "passport",
+            "label": "Passport",
+            "description": "The photo page and the address page.",
+            "images": [
+              {
+                "name": "front",
+                "label": "Front image",
+                "description": "The page with your photo."
+              },
+              {
+                "name": "back",
+                "label": "Back image",
+                "description": "The page with your address."
+              }
+            ]
+          },
+          {
+            "id": "rationCard",
+            "label": "Ration card",
+            "description": "The front side of your ration card.",
+            "images": [
+              {
+                "name": "front",
+                "label": "Front image",
+                "description": "The front side, with your photo and card number."
+              }
+            ]
+          },
+          {
+            "id": "birthCertificate",
+            "label": "Birth certificate",
+            "description": "The front side of your birth certificate.",
+            "images": [
+              {
+                "name": "front",
+                "label": "Front image",
+                "description": "The front side of the certificate."
+              }
+            ]
+          }
+        ],
+        "images": [],
+        "fields": []
+      },
+      {
+        "name": "driverDrivingLicence",
+        "label": "Driving licence",
+        "description": "Your driving licence, front and back, with its number and expiry.",
+        "isMandatory": true,
+        "collectedAt": "identity",
+        "typeOptions": [],
+        "images": [
+          {
+            "name": "front",
+            "label": "Front image",
+            "description": "The side with your photo and licence number."
+          },
+          {
+            "name": "back",
+            "label": "Back image",
+            "description": "The side listing what you may drive."
+          }
+        ],
+        "fields": [
+          {
+            "name": "licenceNumber",
+            "label": "Licence number",
+            "type": "text",
+            "placeholder": "OKAFO903142M",
+            "isMandatory": true
+          },
+          {
+            "name": "expiry",
+            "label": "Expiry",
+            "type": "month",
+            "placeholder": "MM / YYYY",
+            "isMandatory": true
+          }
+        ]
+      },
+      {
+        "name": "driverProfilePhoto",
+        "label": "Profile photo",
+        "description": "Three photos of your face, so we can match you to your ID.",
+        "isMandatory": true,
+        "collectedAt": "identity",
+        "typeOptions": [],
+        "images": [
+          {
+            "name": "front",
+            "label": "Front image",
+            "description": "Look straight at the camera."
+          },
+          {
+            "name": "left",
+            "label": "Left image",
+            "description": "Turn your head slightly left."
+          },
+          {
+            "name": "right",
+            "label": "Right image",
+            "description": "Turn your head slightly right."
+          }
+        ],
+        "fields": []
+      },
+      {
+        "name": "driverVehicleDoc",
+        "label": "Registration certificate (RC)",
+        "description": "Proves the vehicle is registered to you. Front and back of the RC book or card.",
+        "isMandatory": false,
+        "collectedAt": "vehicle",
+        "typeOptions": [],
+        "images": [
+          {
+            "name": "front",
+            "label": "Front image",
+            "description": "The page with the registration number and your name."
+          },
+          {
+            "name": "back",
+            "label": "Back image",
+            "description": "The other side."
+          }
+        ],
+        "fields": []
+      },
+      {
+        "name": "driverInsuranceCertificate",
+        "label": "Insurance certificate",
+        "description": "Cover for hire and reward, not just personal use. Front and back.",
+        "isMandatory": true,
+        "collectedAt": "vehicle",
+        "typeOptions": [],
+        "images": [
+          {
+            "name": "front",
+            "label": "Front image",
+            "description": "The page with the policy number and the plate."
+          },
+          {
+            "name": "back",
+            "label": "Back image",
+            "description": "The page listing what is covered."
+          }
+        ],
+        "fields": []
+      },
+      {
+        "name": "driverMotCertificates",
+        "label": "Pollution certificate (PUC)",
+        "description": "Your valid Pollution Under Control certificate.",
+        "isMandatory": true,
+        "collectedAt": "vehicle",
+        "typeOptions": [],
+        "images": [
+          {
+            "name": "front",
+            "label": "Front image",
+            "description": "The page with the test number and expiry."
+          },
+          {
+            "name": "back",
+            "label": "Back image",
+            "description": "The other side."
+          }
+        ],
+        "fields": []
+      },
+      {
+        "name": "driverPrivateHireLicence",
+        "label": "Commercial permit",
+        "description": "The permit allowing this vehicle to carry passengers for hire.",
+        "isMandatory": false,
+        "collectedAt": "vehicle",
+        "typeOptions": [],
+        "images": [
+          {
+            "name": "front",
+            "label": "Front image",
+            "description": "The side with your photo and licence number."
+          },
+          {
+            "name": "back",
+            "label": "Back image",
+            "description": "The side with the expiry."
+          }
+        ],
+        "fields": []
+      }
+    ],
+    "vehicleDetails": {
+      "fields": [
+        {
+          "name": "make",
+          "label": "Make",
+          "type": "text",
+          "placeholder": "Volvo",
+          "isMandatory": true
+        },
+        {
+          "name": "model",
+          "label": "Model",
+          "type": "text",
+          "placeholder": "S90",
+          "isMandatory": true
+        },
+        {
+          "name": "year",
+          "label": "Year",
+          "type": "number",
+          "placeholder": "2024",
+          "min": 2010,
+          "max": 2027,
+          "isMandatory": true
+        },
+        {
+          "name": "colour",
+          "label": "Colour",
+          "type": "text",
+          "placeholder": "Graphite",
+          "isMandatory": true
+        },
+        {
+          "name": "licencePlate",
+          "label": "Number plate",
+          "type": "text",
+          "placeholder": "MH 12 AB 1234",
+          "helper": "As it appears on the vehicle",
+          "isMandatory": true
+        }
+      ]
+    }
+  },
+  "otp": {
+    "codeLength": 4,
+    "expiresInMinutes": 10,
+    "resendAfterSeconds": 30
+  },
+  "rules": {
+    "minimumAgeYears": 21
+  },
+  "support": {
+    "email": "arshdeep.k@kitlabs.tech",
+    "phone": "+448000000000"
+  },
+  "features": {
+    "phoneSignIn": true,
+    "emailSignIn": true,
+    "socialSignIn": false,
+    "genderPreference": true
+  },
+  "minimumAppVersion": "1.0.0"
+}

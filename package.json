@@ -1,0 +1,28 @@
+{
+  "name": "kit-taxi-driver-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file=.env.development src/main.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/main.js",
+    "typecheck": "tsc --noEmit",
+    "postman": "node scripts/gen-postman.mjs",
+    "db:reset": "node --env-file=.env.development scripts/reset-db.mjs",
+    "db:unlock": "node --env-file=.env.development scripts/unlock.mjs"
+  },
+  "dependencies": {
+    "express": "5.1.0",
+    "mysql2": "^3.24.4",
+    "ws": "^8.22.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.1",
+    "@types/node": "22.18.1",
+    "@types/ws": "^8.18.2",
+    "tsx": "4.20.6",
+    "typescript": "5.9.2"
+  }
+}
