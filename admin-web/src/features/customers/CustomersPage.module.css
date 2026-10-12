@@ -1,0 +1,14 @@
+.page { display: flex; flex-direction: column; gap: var(--space-5); }
+.header { display: flex; flex-direction: column; gap: 2px; }
+.title { font-size: var(--font-size-xl); }
+.subtitle { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+
+.customerCell { display: flex; align-items: center; gap: var(--space-3); }
+.avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--color-neutral-100); color: var(--color-neutral-700);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); flex-shrink: 0;
+}
+.customerName { font-weight: var(--font-weight-medium); color: var(--color-text-primary); }
+.customerId { font-size: var(--font-size-xs); color: var(--color-text-tertiary); }

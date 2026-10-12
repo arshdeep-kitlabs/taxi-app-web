@@ -1,0 +1,167 @@
+/* FleetRidesPage.module.css */
+
+.page {
+  padding: 32px 40px 100px;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  font-size: 13.5px;
+  color: var(--color-muted, #6b7280);
+  margin: 0;
+  max-width: 560px;
+  line-height: 1.5;
+}
+
+/* ── Stats ────────────────────────────────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.statCard {
+  background: var(--color-surface, #fbfaf6);
+  border: 1px solid var(--color-border, #e5e3dc);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statAccent  { border-left: 3px solid var(--nomad-sage, #5fa77c); }
+.statDanger  { border-left: 3px solid #e53935; }
+.statWarning { border-left: 3px solid #f59e0b; }
+
+.statLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  line-height: 1;
+}
+
+/* ── Table section ────────────────────────────────────────────────────────── */
+.tableSection {
+  background: var(--color-surface, #fbfaf6);
+  border: 1px solid var(--color-border, #e5e3dc);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ── Cell styles ─────────────────────────────────────────────────────────── */
+.rideId {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12.5px;
+  color: var(--color-heading, #101112);
+  font-weight: 600;
+}
+
+.pmLabel {
+  font-size: 11px;
+  color: var(--color-muted, #6b7280);
+  margin-top: 2px;
+}
+
+.name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-heading, #101112);
+}
+
+.sub {
+  font-size: 11.5px;
+  color: var(--color-muted, #6b7280);
+  margin-top: 2px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ── Route cell ──────────────────────────────────────────────────────────── */
+.route {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.routePickup {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-heading, #101112);
+}
+
+.routeArrow {
+  font-size: 12px;
+  color: var(--color-muted, #6b7280);
+}
+
+.routeDrop {
+  font-size: 13px;
+  color: var(--color-muted, #6b7280);
+}
+
+/* ── Fare & rating ───────────────────────────────────────────────────────── */
+.fare {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-heading, #101112);
+}
+
+.rating {
+  font-size: 11.5px;
+  color: #f59e0b;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* ── Date cell ───────────────────────────────────────────────────────────── */
+.dateTime {
+  font-size: 12.5px;
+  color: var(--color-muted, #6b7280);
+  white-space: nowrap;
+}
+
+/* ── Pagination ──────────────────────────────────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-border, #e5e3dc);
+}
+
+.pageInfo {
+  font-size: 13px;
+  color: var(--color-muted, #6b7280);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .page { padding: 24px 20px 80px; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}

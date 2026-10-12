@@ -1,0 +1,23 @@
+.page { padding: 28px 36px 80px; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.title { font-size: 20px; font-weight: 700; color: var(--color-heading, #101112); margin: 0 0 3px; }
+.subtitle { font-size: 13px; color: var(--color-muted, #6b7280); margin: 0; }
+
+.metGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 20px; }
+
+.metCard { background: var(--color-surface, #fbfaf6); border: 1px solid var(--color-border, #e5e3dc); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; }
+.metAccent { border-left: 3px solid var(--nomad-sage, #5fa77c); }
+.metLabel  { font-size: 10.5px; font-weight: 600; color: var(--color-muted, #6b7280); text-transform: uppercase; letter-spacing: 0.05em; }
+.metValue  { font-size: 20px; font-weight: 700; color: var(--color-heading, #101112); line-height: 1.1; }
+.metSub    { font-size: 11px; color: var(--color-muted, #6b7280); }
+
+.chartsRow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+
+.chartCard { background: var(--color-surface, #fbfaf6); border: 1px solid var(--color-border, #e5e3dc); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; }
+.chartCard:last-child { margin-bottom: 0; }
+
+.chartWrap { width: 100%; }
+.chartLabel { font-size: 12px; font-weight: 600; color: var(--color-heading, #101112); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+
+@media (max-width: 1200px) { .metGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 960px)  { .chartsRow { grid-template-columns: 1fr; } .metGrid { grid-template-columns: repeat(2, 1fr); } }

@@ -1,0 +1,375 @@
+/* FleetDocumentsPage.module.css */
+
+.page {
+  padding: 32px 40px 100px;
+}
+
+/* ── Header ───────────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  font-size: 13.5px;
+  color: var(--color-muted, #6b7280);
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.5;
+}
+
+/* ── Stats grid ───────────────────────────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.statCard {
+  background: var(--color-surface, #fbfaf6);
+  border: 1px solid var(--color-border, #e5e3dc);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statAccent {
+  border-left: 3px solid var(--nomad-sage, #5fa77c);
+}
+
+.statWarning {
+  border-left: 3px solid #f59e0b;
+}
+
+.statDanger {
+  border-left: 3px solid #e53935;
+}
+
+.statLabel {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--color-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  line-height: 1;
+}
+
+/* ── Table section ────────────────────────────────────────────────────────── */
+.tableSection {
+  background: var(--color-surface, #fbfaf6);
+  border: 1px solid var(--color-border, #e5e3dc);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Highlight rows with issues */
+.rowAlert td {
+  background: #fff9f9;
+}
+
+/* ── Fleet name + ID ─────────────────────────────────────────────────────── */
+.fleetLink {
+  font-weight: 600;
+  color: var(--nomad-sage, #5fa77c);
+  text-decoration: none;
+  font-size: 13.5px;
+}
+
+.fleetLink:hover {
+  text-decoration: underline;
+}
+
+.fleetId {
+  font-size: 11.5px;
+  color: var(--color-muted, #6b7280);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  margin-top: 2px;
+}
+
+/* ── Document name ───────────────────────────────────────────────────────── */
+.docName {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-heading, #101112);
+}
+
+.reuploadPill {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  background: #fff3e0;
+  color: #e65100;
+  border-radius: 99px;
+  vertical-align: middle;
+}
+
+/* ── Mono doc number ─────────────────────────────────────────────────────── */
+.mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 12.5px;
+  color: var(--color-heading, #101112);
+}
+
+/* ── Expiry cell ─────────────────────────────────────────────────────────── */
+.expiryCell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.expiryTag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 99px;
+  width: fit-content;
+}
+
+.expiry--warning {
+  background: #fff8e1;
+  color: #f59e0b;
+}
+
+.expiry--danger {
+  background: #ffebee;
+  color: #e53935;
+}
+
+/* ── Actions ─────────────────────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ── Pagination ──────────────────────────────────────────────────────────── */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--color-border, #e5e3dc);
+}
+
+.pageInfo {
+  font-size: 13px;
+  color: var(--color-muted, #6b7280);
+}
+
+/* ── Toast ───────────────────────────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  z-index: 9999;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  animation: fadeIn 0.18s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  max-width: 360px;
+}
+
+.toast--success {
+  background: var(--nomad-sage, #5fa77c);
+  color: #fff;
+}
+
+.toast--danger {
+  background: #e53935;
+  color: #fff;
+}
+
+.toast--warning {
+  background: #f59e0b;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+
+/* ── Modal ───────────────────────────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.modalBox {
+  background: var(--color-surface, #fbfaf6);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 520px;
+  padding: 28px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.modalTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-heading, #101112);
+  margin: 0 0 12px;
+}
+
+.modalDesc {
+  font-size: 13.5px;
+  color: var(--color-muted, #6b7280);
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+/* ── Document preview ────────────────────────────────────────────────────── */
+.docPreview {
+  border: 2px dashed var(--color-border, #e5e3dc);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.docPreviewPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  gap: 8px;
+}
+
+.docPreviewIcon {
+  font-size: 40px;
+}
+
+.docPreviewLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-heading, #101112);
+}
+
+.docPreviewSub {
+  font-size: 12.5px;
+  color: var(--color-muted, #6b7280);
+}
+
+/* ── Document detail grid ────────────────────────────────────────────────── */
+.docDetailGrid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 8px 16px;
+  margin-bottom: 24px;
+}
+
+.docDetailGrid dt {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+}
+
+.docDetailGrid dd {
+  font-size: 13.5px;
+  color: var(--color-heading, #101112);
+  margin: 0;
+}
+
+.rejectReasonText {
+  color: #e53935;
+  font-style: italic;
+}
+
+/* ── Reason field ────────────────────────────────────────────────────────── */
+.reasonField {
+  margin-bottom: 20px;
+}
+
+.reasonLabel {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-muted, #6b7280);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.reasonTextarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--color-border, #e5e3dc);
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-family: inherit;
+  resize: vertical;
+  background: var(--color-bg, #f7f6f0);
+  color: var(--color-heading, #101112);
+  box-sizing: border-box;
+}
+
+.reasonTextarea:focus {
+  outline: none;
+  border-color: var(--nomad-sage, #5fa77c);
+}
+
+/* ── Modal actions ───────────────────────────────────────────────────────── */
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 24px 20px 80px;
+  }
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,9 @@
+.page { padding: 28px 36px 80px; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.title { font-size: 20px; font-weight: 700; color: var(--color-heading, #101112); margin: 0 0 3px; }
+.subtitle { font-size: 13px; color: var(--color-muted, #6b7280); margin: 0; }
+.tableSection { background: var(--color-surface, #fbfaf6); border: 1px solid var(--color-border, #e5e3dc); border-radius: 12px; overflow: hidden; }
+.tableTop { padding: 16px 18px 0; }
+.rideId { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600; color: var(--nomad-sage, #5fa77c); }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 14px 24px; border-top: 1px solid var(--color-border, #e5e3dc); }
+.pageInfo { font-size: 13px; color: var(--color-muted, #6b7280); }

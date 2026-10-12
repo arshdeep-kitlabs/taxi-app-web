@@ -1,0 +1,96 @@
+/* Only ever the empty state now — an uploaded document is not boxed in. */
+.preview {
+  min-height: 220px;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-50);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-tertiary);
+}
+
+.meta {
+  display: grid;
+  /* Spreads across the wide modal rather than staying in two columns. */
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--space-3) var(--space-5);
+}
+
+.metaLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  margin-bottom: 2px;
+}
+
+.metaValue {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  word-break: break-word;
+}
+
+.reviewNote {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-danger-bg);
+  border: 1px solid var(--color-danger-border);
+  color: var(--color-danger-text);
+  font-size: var(--font-size-sm);
+}
+
+.images {
+  display: grid;
+  /* Two up on a wide screen, one on a narrow one, without a breakpoint. */
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.image {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.imageLink {
+  display: block;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  /* A neutral field behind it, so a pale document still has an edge. */
+  background: var(--color-neutral-100);
+  overflow: hidden;
+}
+
+.imageLink:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.image img {
+  display: block;
+  width: 100%;
+  /* Tall enough to read an ID, and contain rather than cover: cropping the
+     corner off a licence is exactly what a reviewer needs to see. */
+  height: min(52vh, 30rem);
+  object-fit: contain;
+}
+
+.imageCaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+  text-transform: capitalize;
+}
+
+.openHint {
+  text-transform: none;
+  color: var(--color-accent-700);
+}
+

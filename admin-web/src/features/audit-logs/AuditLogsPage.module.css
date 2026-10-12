@@ -1,0 +1,6 @@
+.page { display: flex; flex-direction: column; gap: var(--space-5); }
+.header { display: flex; flex-direction: column; gap: 2px; }
+.title { font-size: var(--font-size-xl); }
+.subtitle { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+.change { font-size: var(--font-size-xs); color: var(--color-text-secondary); }
+.entityType { font-size: var(--font-size-xs); color: var(--color-text-tertiary); }

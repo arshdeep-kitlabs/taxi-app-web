@@ -1,0 +1,8 @@
+.docCount {
+  font-variant-numeric: tabular-nums;
+}
+
+.docCount--incomplete {
+  color: var(--color-warning-text);
+  font-weight: var(--font-weight-medium);
+}
