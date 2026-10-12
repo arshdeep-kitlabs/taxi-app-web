@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch --env-file=.env.development src/main.ts",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/main.js",
+    "start": "npx tsx src/main.ts",
     "typecheck": "tsc --noEmit",
     "postman": "node scripts/gen-postman.mjs",
     "db:reset": "node --env-file=.env.development scripts/reset-db.mjs",
