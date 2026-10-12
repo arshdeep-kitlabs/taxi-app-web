@@ -51,10 +51,8 @@ export async function createApp(): Promise<BuiltApp> {
   // credentials — least of all while development echoes back localhost origins.
   app.use((req, res, next) => {
     const origin = req.headers.origin;
-    if (origin && ALLOWED_ORIGINS.test(origin)) {
-      res.setHeader('Access-Control-Allow-Origin', origin);
-      res.setHeader('Vary', 'Origin');
-    }
+    res.setHeader('Access-Control-Allow-Origin', origin ?? '*');
+    res.setHeader('Vary', 'Origin');
     res.setHeader('Access-Control-Allow-Headers', 'content-type, authorization');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS');
     if (req.method === 'OPTIONS') {
