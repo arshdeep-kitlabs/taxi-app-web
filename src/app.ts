@@ -21,7 +21,7 @@ import { adminAuthRoutes } from './api/admin/auth/admin-auth.routes.js';
 import { adminConfigRoutes } from './api/admin/config/admin-config.routes.js';
 import { adminUsersRoutes } from './api/admin/users/admin-users.routes.js';
 
-const LOCALHOST = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/;
+const ALLOWED_ORIGINS = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$|^https:\/\/[\w-]+\.vercel\.app$/;
 
 /**
  * Everything main.ts needs: the app to listen with, and the pieces the
@@ -51,7 +51,7 @@ export async function createApp(): Promise<BuiltApp> {
   // credentials — least of all while development echoes back localhost origins.
   app.use((req, res, next) => {
     const origin = req.headers.origin;
-    if (origin && LOCALHOST.test(origin)) {
+    if (origin && ALLOWED_ORIGINS.test(origin)) {
       res.setHeader('Access-Control-Allow-Origin', origin);
       res.setHeader('Vary', 'Origin');
     }
